@@ -1,0 +1,109 @@
+import { useParams, Link } from 'react-router-dom';
+import { FiFilter, FiShoppingCart } from 'react-icons/fi';
+import { products } from '../data/products';
+import { useCart } from '../contexts/CartContext';
+
+export default function CategoryPage() {
+  const { categoryId } = useParams();
+  const { addToCart } = useCart();
+  
+  // Format the category name for display and matching
+  // Ensure the parameter matches the data category (e.g., 'cakes' -> 'Cakes')
+  const formattedCategory = categoryId.charAt(0).toUpperCase() + categoryId.slice(1);
+  
+  // Handle special case for 'cup-cakes' -> 'Cup Cakes' if needed, but our links are standard
+  
+  // Filter products by category
+  const categoryProducts = products.filter(
+    (product) => product.category.toLowerCase() === formattedCategory.toLowerCase()
+  );
+
+  return (
+    <div className="bg-warm-gray-50 min-h-screen pb-20">
+      {/* Category Header */}
+      <div className="bg-teal-900 text-white py-16 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">{formattedCategory}</h1>
+          <p className="text-cream-200/80 max-w-2xl mx-auto text-lg">
+            Browse our delicious selection of freshly baked {categoryId}.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 mt-8">
+        {/* Toolbar */}
+        <div className="flex flex-col sm:flex-row justify-between items-center bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-8 mt-[-3rem] relative z-10">
+          <p className="text-gray-600 font-medium mb-4 sm:mb-0">
+            Showing all <span className="font-bold text-teal-900">{categoryProducts.length}</span> results for {formattedCategory}
+          </p>
+          <div className="flex items-center gap-3">
+            <button className="flex items-center gap-2 px-4 py-2 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+              <FiFilter size={16} /> Filter
+            </button>
+            <select className="px-4 py-2 border border-gray-200 text-gray-700 rounded-lg focus:outline-none focus:border-teal-500 bg-white">
+              <option>Default sorting</option>
+              <option>Sort by popularity</option>
+              <option>Sort by newness</option>
+              <option>Sort by price: low to high</option>
+              <option>Sort by price: high to low</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Product Grid */}
+        {categoryProducts.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {categoryProducts.map((product) => (
+              <div key={product.id} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow group">
+                <div className="relative aspect-square mb-4 overflow-hidden rounded-xl bg-warm-gray-50">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {product.badge && (
+                    <span className="absolute top-3 left-3 px-2.5 py-1 bg-terracotta-500 text-white text-xs font-bold rounded-full">
+                      {product.badge}
+                    </span>
+                  )}
+                  {/* Quick Add Overlay */}
+                  <div className="absolute inset-x-0 bottom-0 p-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    <button 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        addToCart(product);
+                      }}
+                      className="w-full py-2.5 bg-white text-teal-900 font-semibold rounded-lg shadow-lg flex items-center justify-center gap-2 hover:bg-teal-50 transition-colors"
+                    >
+                      <FiShoppingCart size={18} /> Quick Add
+                    </button>
+                  </div>
+                </div>
+                <div className="mb-1 text-xs font-medium text-terracotta-500 uppercase tracking-wider">
+                  {product.category}
+                </div>
+                <h3 className="font-bold text-teal-900 text-lg mb-2 line-clamp-1">{product.name}</h3>
+                <div className="flex items-center gap-2">
+                  <span className="font-bold text-teal-900">${product.price.toFixed(2)}</span>
+                  {product.originalPrice && (
+                    <span className="text-sm text-gray-400 line-through">
+                      ${product.originalPrice.toFixed(2)}
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-20 bg-white rounded-2xl shadow-sm border border-gray-100">
+            <h3 className="text-2xl font-bold text-teal-900 mb-2">No products found</h3>
+            <p className="text-gray-500 mb-6">We currently don't have any products in the {formattedCategory} category.</p>
+            <Link to="/" className="inline-block px-6 py-3 bg-teal-800 text-white rounded-lg hover:bg-teal-900 transition-colors">
+              Return to Home
+            </Link>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
