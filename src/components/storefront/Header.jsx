@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useCart } from '../../contexts/CartContext';
+import { useWishlist } from '../../contexts/WishlistContext';
 import { FiSearch, FiUser, FiHeart, FiShoppingCart, FiMenu, FiX, FiLogOut } from 'react-icons/fi';
 import { GiCakeSlice } from 'react-icons/gi';
 
@@ -12,11 +13,16 @@ const navLinks = [
   { label: 'Breads', to: '/category/breads' },
   { label: 'Pastry', to: '/category/pastry' },
   { label: 'Desserts', to: '/category/desserts' },
+  { label: 'Baby Cakes', to: '/category/baby-cakes' },
+  { label: 'Boys Cakes', to: '/category/boys-cakes' },
+  { label: 'Deals', to: '/category/deals' },
+  { label: 'Nikka Cakes', to: '/category/nikka-cakes' },
 ];
 
 export default function Header() {
   const { user, logout } = useAuth();
   const { totalItems, toggleCart } = useCart();
+  const { wishlist, toggleWishlistSidebar } = useWishlist();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
@@ -27,7 +33,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
           <span>📞 (+001) 0123-456-789 &nbsp;|&nbsp; 📧 info@blushercakes.com</span>
           <div className="hidden md:flex items-center gap-4">
-            <span>Free delivery on orders over $50!</span>
+            <span>Free delivery on orders over PKR 5,000!</span>
           </div>
         </div>
       </div>
@@ -82,9 +88,16 @@ export default function Header() {
               </Link>
             )}
 
-            <button className="relative text-teal-800 hover:text-terracotta-500 transition-colors p-2 hover:bg-warm-gray-50 rounded-full">
-              <FiHeart size={20} />
-              <span className="absolute -top-0.5 -right-0.5 bg-terracotta-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+            <button 
+              onClick={toggleWishlistSidebar}
+              className="relative text-teal-800 hover:text-terracotta-500 transition-colors p-2 hover:bg-warm-gray-50 rounded-full"
+            >
+              <FiHeart size={20} fill={wishlist.length > 0 ? "currentColor" : "none"} />
+              {wishlist.length > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 bg-terracotta-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold animate-pulse">
+                  {wishlist.length}
+                </span>
+              )}
             </button>
 
             <button 

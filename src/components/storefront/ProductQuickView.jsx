@@ -1,13 +1,17 @@
 import { FiX, FiShoppingCart, FiHeart, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { FaStar } from 'react-icons/fa';
 import { useCart } from '../../contexts/CartContext';
+import { useWishlist } from '../../contexts/WishlistContext';
 import { useEffect, useState } from 'react';
 
 export default function ProductQuickView({ isOpen, onClose, product }) {
   const { addToCart } = useCart();
+  const { toggleWishlist, isFavorite } = useWishlist();
   const [quantity, setQuantity] = useState(1);
   const [isAdding, setIsAdding] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const favorited = product ? isFavorite(product.id) : false;
 
   // If product doesn't have multiple images, mock them for the demo
   const images = product?.images || [
@@ -138,10 +142,10 @@ export default function ProductQuickView({ isOpen, onClose, product }) {
             <span className="text-sm text-gray-500 font-medium">({product.reviews || 0} reviews)</span>
           </div>
 
-          <div className="flex items-end gap-3 mb-6">
-            <span className="text-3xl font-bold text-teal-800">${product.price?.toFixed(2)}</span>
+          <div className="flex flex-col mb-6">
+            <span className="text-3xl font-bold text-teal-800">PKR {Math.floor(product.price || 0).toLocaleString()} <span className="text-xs font-normal text-gray-400 lowercase">per pound</span></span>
             {product.originalPrice && (
-              <span className="text-lg text-gray-400 line-through mb-1">${product.originalPrice.toFixed(2)}</span>
+              <span className="text-lg text-gray-400 line-through">PKR {Math.floor(product.originalPrice).toLocaleString()}</span>
             )}
           </div>
 
@@ -189,8 +193,15 @@ export default function ProductQuickView({ isOpen, onClose, product }) {
                 )}
               </button>
 
-              <button className="w-12 h-12 flex items-center justify-center rounded-xl border-2 border-gray-200 text-gray-400 hover:border-terracotta-500 hover:text-terracotta-500 transition-colors flex-shrink-0">
-                <FiHeart size={20} />
+              <button 
+                onClick={() => toggleWishlist(product)}
+                className={`w-12 h-12 flex items-center justify-center rounded-xl border-2 transition-all flex-shrink-0 ${
+                  favorited 
+                    ? 'border-terracotta-500 bg-terracotta-500 text-white' 
+                    : 'border-gray-200 text-gray-400 hover:border-terracotta-500 hover:text-terracotta-500'
+                }`}
+              >
+                <FiHeart size={20} fill={favorited ? "currentColor" : "none"} />
               </button>
             </div>
           </div>

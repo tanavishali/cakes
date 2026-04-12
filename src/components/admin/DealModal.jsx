@@ -121,7 +121,7 @@ export default function DealModal({ isOpen, onClose, onSave, deal, isViewOnly = 
                 value={formData.discountValue}
                 onChange={(e) => setFormData({ ...formData, discountValue: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-teal-600 text-sm disabled:bg-gray-50 disabled:text-gray-500"
-                placeholder="e.g., 20% or $10"
+                placeholder="e.g., 20% or PKR 1,000"
               />
             </div>
           </div>

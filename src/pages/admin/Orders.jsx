@@ -70,7 +70,7 @@ export default function Orders() {
                   <td className="px-6 py-3.5 text-gray-600">{order.customer}</td>
                   <td className="px-6 py-3.5 text-gray-500">{order.date}</td>
                   <td className="px-6 py-3.5 text-gray-500">{order.items}</td>
-                  <td className="px-6 py-3.5 font-medium text-gray-800">${order.total.toFixed(2)}</td>
+                  <td className="px-6 py-3.5 font-medium text-gray-800">PKR {Math.floor(order.total).toLocaleString()}</td>
                   <td className="px-6 py-3.5">
                     <select
                       value={order.status}

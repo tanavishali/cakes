@@ -3,7 +3,7 @@ import { orders, products } from '../../data/products';
 
 const stats = [
   { label: 'Total Orders', value: '1,248', change: '+12.5%', up: true, icon: FiShoppingBag, color: 'bg-teal-700' },
-  { label: 'Revenue', value: '$48,295', change: '+8.2%', up: true, icon: FiDollarSign, color: 'bg-terracotta-500' },
+  { label: 'Revenue', value: 'PKR 4,829,500', change: '+8.2%', up: true, icon: FiDollarSign, color: 'bg-terracotta-500' },
   { label: 'Products', value: '156', change: '+3', up: true, icon: FiPackage, color: 'bg-amber-500' },
   { label: 'Customers', value: '3,842', change: '-2.1%', up: false, icon: FiUsers, color: 'bg-violet-500' },
 ];
@@ -68,7 +68,7 @@ export default function Dashboard() {
                   <td className="px-6 py-3.5 text-gray-600">{order.customer}</td>
                   <td className="px-6 py-3.5 text-gray-500">{order.date}</td>
                   <td className="px-6 py-3.5 text-gray-500">{order.items}</td>
-                  <td className="px-6 py-3.5 font-medium text-gray-800">${order.total.toFixed(2)}</td>
+                  <td className="px-6 py-3.5 font-medium text-gray-800">PKR {Math.floor(order.total).toLocaleString()}</td>
                   <td className="px-6 py-3.5">
                     <span className={`inline-flex px-2.5 py-1 rounded-full text-xs font-medium ${statusColors[order.status]}`}>
                       {order.status}
@@ -94,7 +94,7 @@ export default function Dashboard() {
                 <p className="text-sm font-medium text-gray-800 truncate">{p.name}</p>
                 <p className="text-xs text-gray-500">{p.category}</p>
               </div>
-              <span className="text-sm font-bold text-teal-800">${p.price.toFixed(2)}</span>
+              <span className="text-sm font-bold text-teal-800">PKR {Math.floor(p.price).toLocaleString()}</span>
             </div>
           ))}
         </div>

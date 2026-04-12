@@ -113,7 +113,7 @@ export default function CartSidebar() {
                       </div>
                       
                       <div className="font-bold text-teal-900">
-                        ${(item.price * item.quantity).toFixed(2)}
+                        PKR {Math.floor(item.price * item.quantity).toLocaleString()}
                       </div>
                     </div>
                   </div>
@@ -128,20 +128,20 @@ export default function CartSidebar() {
           <div className="p-6 bg-gray-50 border-t border-gray-100 space-y-4">
             <div className="flex justify-between text-sm text-gray-600">
               <span>Subtotal</span>
-              <span className="font-medium text-teal-900">${subtotal.toFixed(2)}</span>
+              <span className="font-medium text-teal-900">PKR {Math.floor(subtotal).toLocaleString()}</span>
             </div>
             <div className="flex justify-between text-sm text-gray-600">
               <span>Shipping</span>
               {shipping === 0 ? (
                 <span className="font-medium text-terracotta-500 uppercase text-xs tracking-wider bg-terracotta-50 px-2 py-1 rounded">Free</span>
               ) : (
-                <span className="font-medium text-teal-900">${shipping.toFixed(2)}</span>
+                <span className="font-medium text-teal-900">PKR {Math.floor(shipping).toLocaleString()}</span>
               )}
             </div>
             <div className="h-px w-full bg-gray-200 my-2"></div>
             <div className="flex justify-between items-end mb-6">
               <span className="text-gray-700 font-semibold">Total</span>
-              <span className="text-2xl font-bold text-teal-900">${total.toFixed(2)}</span>
+              <span className="text-2xl font-bold text-teal-900">PKR {Math.floor(total).toLocaleString()}</span>
             </div>
             
             <button 

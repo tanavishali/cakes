@@ -79,7 +79,7 @@ export function CartProvider({ children }) {
   // Calculate totals
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
   const subtotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
-  const shipping = subtotal > 50 ? 0 : 10; // Free shipping over $50
+  const shipping = subtotal > 5000 ? 0 : 500; // Free shipping over PKR 5,000
   const total = subtotal + (subtotal > 0 ? shipping : 0);
 
   const value = {

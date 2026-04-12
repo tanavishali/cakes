@@ -33,7 +33,7 @@ export default function Delivery() {
             <div>
               <h3 className="text-xl font-bold text-teal-900 mb-2">Delivery Rates</h3>
               <p className="text-gray-600 leading-relaxed">
-                Standard delivery is $10 for orders under $50. <strong className="text-terracotta-600 font-semibold">Enjoy free delivery on all orders over $50!</strong> Customized delivery rates may apply for large tiered cakes or bulk catering orders.
+                Standard delivery is PKR 500 for orders under PKR 5,000. <strong className="text-terracotta-600 font-semibold">Enjoy free delivery on all orders over PKR 5,000!</strong> Customized delivery rates may apply for large tiered cakes or bulk catering orders.
               </p>
             </div>
           </div>

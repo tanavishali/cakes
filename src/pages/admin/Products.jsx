@@ -180,7 +180,7 @@ export default function Products() {
                       </div>
                     </td>
                     <td className="px-6 py-3 text-gray-500">{p.category}</td>
-                    <td className="px-6 py-3 font-medium text-gray-800">${p.price.toFixed(2)}</td>
+                    <td className="px-6 py-3 font-medium text-gray-800">PKR {Math.floor(p.price).toLocaleString()}</td>
                     <td className="px-6 py-3 text-gray-500">⭐ {p.rating}</td>
                     <td className="px-6 py-3">
                       <div className="flex items-center gap-2">
@@ -223,7 +223,7 @@ export default function Products() {
                     <td className="px-6 py-3 font-medium text-gray-800">{d.title}</td>
                     <td className="px-6 py-3 text-gray-500">{d.targetProduct}</td>
                     <td className="px-6 py-3 text-gray-500">{d.type}</td>
-                    <td className="px-6 py-3 font-medium text-teal-600">{d.type === 'Discount Percentage' ? `${d.discountValue}%` : `$${d.discountValue}`}</td>
+                    <td className="px-6 py-3 font-medium text-teal-600">{d.type === 'Discount Percentage' ? `${d.discountValue}%` : `PKR ${Math.floor(d.discountValue).toLocaleString()}`}</td>
                     <td className="px-6 py-3 text-gray-500">{d.validUntil}</td>
                     <td className="px-6 py-3">
                       <span className={`px-2 py-1 text-xs font-medium rounded-full ${d.status === 'Active' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'}`}>
@@ -271,7 +271,7 @@ export default function Products() {
                     <td className="px-6 py-3 font-bold text-teal-700">{o.code}</td>
                     <td className="px-6 py-3 text-gray-500">{o.description}</td>
                     <td className="px-6 py-3 text-gray-500">{o.type}</td>
-                    <td className="px-6 py-3 font-medium text-teal-600">{o.type === 'Percentage' ? `${o.value}%` : o.type === 'Free Shipping' ? '-' : `$${o.value}`}</td>
+                    <td className="px-6 py-3 font-medium text-teal-600">{o.type === 'Percentage' ? `${o.value}%` : o.type === 'Free Shipping' ? '-' : `PKR ${o.value}`}</td>
                     <td className="px-6 py-3 text-gray-500">{o.validUntil}</td>
                     <td className="px-6 py-3">
                       <span className={`px-2 py-1 text-xs font-medium rounded-full ${o.status === 'Active' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'}`}>

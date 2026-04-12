@@ -103,7 +103,7 @@ export default function OfferModal({ isOpen, onClose, onSave, offer, isViewOnly 
                 className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-teal-600 text-sm disabled:bg-gray-50 disabled:text-gray-500"
               >
                 <option value="Percentage">Percentage %</option>
-                <option value="Fixed Amount">Fixed Amount ($)</option>
+                <option value="Fixed Amount">Fixed Amount (PKR)</option>
                 <option value="Free Shipping">Free Shipping</option>
               </select>
             </div>
@@ -126,7 +126,7 @@ export default function OfferModal({ isOpen, onClose, onSave, offer, isViewOnly 
           <div className="grid grid-cols-2 gap-4">
              <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Min. Order Value ($)
+                Min. Order Value (PKR)
               </label>
               <input
                 type="number"
@@ -134,7 +134,7 @@ export default function OfferModal({ isOpen, onClose, onSave, offer, isViewOnly 
                 value={formData.minOrderValue}
                 onChange={(e) => setFormData({ ...formData, minOrderValue: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-teal-600 text-sm disabled:bg-gray-50 disabled:text-gray-500"
-                placeholder="e.g., 50 (optional)"
+                placeholder="e.g., 5000 (optional)"
               />
             </div>
             <div>

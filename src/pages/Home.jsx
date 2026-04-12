@@ -5,7 +5,7 @@ import { products } from '../data/products';
 import { FaTruck, FaShieldAlt, FaHeadset, FaUndo } from 'react-icons/fa';
 
 const features = [
-  { icon: FaTruck, title: 'Free Delivery', desc: 'On orders over $50' },
+  { icon: FaTruck, title: 'Free Delivery', desc: 'On orders over PKR 5,000' },
   { icon: FaShieldAlt, title: 'Secure Payment', desc: '100% secure checkout' },
   { icon: FaHeadset, title: '24/7 Support', desc: 'Dedicated support' },
   { icon: FaUndo, title: 'Easy Returns', desc: '30 day return policy' },

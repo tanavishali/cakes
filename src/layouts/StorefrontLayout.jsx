@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import Header from '../components/storefront/Header';
 import Footer from '../components/storefront/Footer';
 import CartSidebar from '../components/storefront/CartSidebar';
+import WishlistSidebar from '../components/storefront/WishlistSidebar';
 
 export default function StorefrontLayout() {
   return (
@@ -12,6 +13,7 @@ export default function StorefrontLayout() {
       </main>
       <Footer />
       <CartSidebar />
+      <WishlistSidebar />
     </div>
   );
 }

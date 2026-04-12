@@ -3,6 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import { FaWhatsapp } from 'react-icons/fa';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { CartProvider } from './contexts/CartContext';
+import { WishlistProvider } from './contexts/WishlistContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
 import StorefrontLayout from './layouts/StorefrontLayout';
@@ -95,22 +96,24 @@ export default function App() {
               },
             }} 
           />
-          <AppRoutes />
-          
-          {/* Floating WhatsApp Button */}
-          <a 
-            href="https://wa.me/923067251356" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="fixed bottom-6 right-6 z-50 bg-teal-500 hover:bg-teal-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center group animate-bounce"
-            aria-label="Contact us on WhatsApp"
-          >
-            <FaWhatsapp size={22} />
-            {/* Tooltip */}
-            <span className="absolute right-full mr-4 bg-gray-900 text-white text-xs font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-              Chat with us
-            </span>
-          </a>
+          <WishlistProvider>
+            <AppRoutes />
+            
+            {/* Floating WhatsApp Button */}
+            <a 
+              href="https://wa.me/923067251356" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="fixed bottom-6 right-6 z-50 bg-teal-500 hover:bg-teal-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center group animate-bounce"
+              aria-label="Contact us on WhatsApp"
+            >
+              <FaWhatsapp size={22} />
+              {/* Tooltip */}
+              <span className="absolute right-full mr-4 bg-gray-900 text-white text-xs font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                Chat with us
+              </span>
+            </a>
+          </WishlistProvider>
         </CartProvider>
       </AuthProvider>
     </BrowserRouter>

@@ -15,7 +15,7 @@ export default function CategoryCircles() {
           {categories.map((cat) => (
             <Link
               key={cat.id}
-              to={`/category/${cat.name.toLowerCase()}`}
+              to={`/category/${cat.slug}`}
               className="group flex flex-col items-center gap-3 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-cream-100 border-2 border-warm-gray-200 group-hover:border-terracotta-400 flex items-center justify-center text-3xl md:text-4xl transition-all duration-300 group-hover:shadow-lg group-hover:shadow-terracotta-500/10 text-teal-800">

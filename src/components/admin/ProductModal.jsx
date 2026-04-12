@@ -107,7 +107,7 @@ export default function ProductModal({ isOpen, onClose, onSave, product, isViewO
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Price ($) *
+              Price (PKR) *
             </label>
             <input
               type="number"

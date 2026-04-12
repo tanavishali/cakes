@@ -275,7 +275,7 @@ export default function Checkout() {
                 ) : (
                   <>
                     {paymentMethod === 'card' ? <FiLock /> : <FiCheckCircle />} 
-                    {paymentMethod === 'card' ? `Pay $${total.toFixed(2)} Now` : `Confirm Order for $${total.toFixed(2)}`}
+                    {paymentMethod === 'card' ? `Pay PKR ${Math.floor(total).toLocaleString()} Now` : `Confirm Order for PKR ${Math.floor(total).toLocaleString()}`}
                   </>
                 )}
               </button>
@@ -299,7 +299,7 @@ export default function Checkout() {
                       <h4 className="text-sm font-semibold text-teal-900 line-clamp-1">{item.name}</h4>
                       <p className="text-xs text-gray-500 mt-1">Qty: {item.quantity}</p>
                       <p className="text-sm font-bold text-teal-900 mt-1">
-                        ${(item.price * item.quantity).toFixed(2)}
+                        PKR {Math.floor(item.price * item.quantity).toLocaleString()}
                       </p>
                     </div>
                   </li>
@@ -309,19 +309,19 @@ export default function Checkout() {
               <div className="space-y-3 pt-6 border-t border-gray-100 text-sm">
                 <div className="flex justify-between text-gray-600">
                   <span>Subtotal</span>
-                  <span className="font-semibold text-teal-900">${subtotal.toFixed(2)}</span>
+                  <span className="font-semibold text-teal-900">PKR {Math.floor(subtotal).toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between text-gray-600">
                   <span>Shipping</span>
                   {shipping === 0 ? (
                     <span className="font-semibold text-terracotta-500">Free</span>
                   ) : (
-                    <span className="font-semibold text-teal-900">${shipping.toFixed(2)}</span>
+                    <span className="font-semibold text-teal-900">PKR {Math.floor(shipping).toLocaleString()}</span>
                   )}
                 </div>
                 <div className="pt-3 border-t border-gray-100 flex justify-between items-center">
                   <span className="font-bold text-gray-800">Total</span>
-                  <span className="text-2xl font-bold text-teal-900">${total.toFixed(2)}</span>
+                  <span className="text-2xl font-bold text-teal-900">PKR {Math.floor(total).toLocaleString()}</span>
                 </div>
               </div>
 
