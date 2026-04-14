@@ -7,12 +7,19 @@ import { useWishlist } from '../../contexts/WishlistContext';
 import ProductQuickView from './ProductQuickView';
 
 export default function ProductCard({ product }) {
-  const { name, price, originalPrice, rating, reviews, image, badge } = product;
+  const name = product?.name;
+  const price = product?.price;
+  const originalPrice = product?.originalPrice;
+  const rating = product?.rating;
+  const reviews = product?.reviews;
+  const image = product?.image;
+  const badge = product?.badge;
+  
   const { addToCart } = useCart();
   const { toggleWishlist, isFavorite } = useWishlist();
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
   
-  const favorited = isFavorite(product.id);
+  const favorited = product?.id ? isFavorite(product.id) : false;
 
   return (
     <div className="group bg-white rounded-xl border border-warm-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
@@ -44,7 +51,7 @@ export default function ProductCard({ product }) {
         {/* Hover actions */}
         <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
           <button 
-            onClick={() => toggleWishlist(product)}
+            onClick={() => product && toggleWishlist(product)}
             className={`w-9 h-9 rounded-full shadow-md flex items-center justify-center transition-all ${
               favorited 
                 ? 'bg-terracotta-500 text-white' 
@@ -66,7 +73,7 @@ export default function ProductCard({ product }) {
           <button 
             onClick={(e) => {
               e.preventDefault();
-              addToCart(product);
+              product && addToCart(product);
             }}
             className="w-full py-3 bg-teal-800/95 backdrop-blur-sm text-white text-sm font-semibold flex items-center justify-center gap-2 hover:bg-teal-700 transition-colors"
           >
@@ -85,15 +92,15 @@ export default function ProductCard({ product }) {
             <FaStar
               key={i}
               size={12}
-              className={i < Math.floor(rating) ? 'text-amber-400' : 'text-warm-gray-200'}
+              className={i < Math.floor(rating || 0) ? 'text-amber-400' : 'text-warm-gray-200'}
             />
           ))}
-          <span className="text-xs text-warm-gray-300 ml-1">({reviews})</span>
+          <span className="text-xs text-warm-gray-300 ml-1">({reviews || 0})</span>
         </div>
 
         {/* Price */}
         <div className="flex flex-col">
-          <span className="text-lg font-bold text-teal-800">PKR {Math.floor(price).toLocaleString()} <span className="text-xs font-normal text-gray-400 lowercase">per pound</span></span>
+          <span className="text-lg font-bold text-teal-800">PKR {Math.floor(price || 0).toLocaleString()} <span className="text-xs font-normal text-gray-400 lowercase">per pound</span></span>
           {originalPrice && (
             <span className="text-sm text-warm-gray-300 line-through">PKR {Math.floor(originalPrice).toLocaleString()}</span>
           )}

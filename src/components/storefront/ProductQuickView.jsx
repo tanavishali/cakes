@@ -1,4 +1,4 @@
-import { FiX, FiShoppingCart, FiHeart, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiX, FiShoppingCart, FiHeart, FiChevronLeft, FiChevronRight, FiMinus, FiPlus, FiCheck } from 'react-icons/fi';
 import { FaStar } from 'react-icons/fa';
 import { useCart } from '../../contexts/CartContext';
 import { useWishlist } from '../../contexts/WishlistContext';
@@ -156,9 +156,9 @@ export default function ProductQuickView({ isOpen, onClose, product }) {
               ensuring every bite is an unforgettable delight. Perfect for sharing or treating yourself!
             </p>
             <ul className="mt-4 space-y-1">
-              <li>✓ Freshly baked daily</li>
-              <li>✓ Premium quality ingredients</li>
-              <li>✓ 100% vegetarian-friendly</li>
+              <li className="flex items-center gap-2"><FiCheck className="text-terracotta-500" /> Freshly baked daily</li>
+              <li className="flex items-center gap-2"><FiCheck className="text-terracotta-500" /> Premium quality ingredients</li>
+              <li className="flex items-center gap-2"><FiCheck className="text-terracotta-500" /> 100% vegetarian-friendly</li>
             </ul>
           </div>
 
@@ -168,13 +168,17 @@ export default function ProductQuickView({ isOpen, onClose, product }) {
               <div className="flex items-center border-2 border-gray-200 rounded-xl bg-white w-full sm:w-32 h-12">
                 <button 
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="px-4 text-gray-500 hover:text-teal-700 transition-colors h-full"
-                >-</button>
+                  className="px-4 text-gray-500 hover:text-teal-700 transition-colors h-full flex items-center justify-center"
+                >
+                  <FiMinus />
+                </button>
                 <span className="flex-1 text-center font-bold text-gray-800">{quantity}</span>
                 <button 
                   onClick={() => setQuantity(quantity + 1)}
-                  className="px-4 text-gray-500 hover:text-teal-700 transition-colors h-full"
-                >+</button>
+                  className="px-4 text-gray-500 hover:text-teal-700 transition-colors h-full flex items-center justify-center"
+                >
+                  <FiPlus />
+                </button>
               </div>
 
               <button 

@@ -4,6 +4,8 @@ import { useCart } from '../contexts/CartContext';
 import { FiLock, FiCheckCircle, FiChevronLeft, FiTruck } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 
+import { FaCcVisa, FaCcMastercard, FaCcAmex } from 'react-icons/fa';
+
 export default function Checkout() {
   const { cartItems, subtotal, shipping, total, clearCart } = useCart();
   const navigate = useNavigate();
@@ -181,9 +183,9 @@ export default function Checkout() {
                         <span className={`font-semibold ${paymentMethod === 'card' ? 'text-teal-900' : 'text-gray-600'}`}>Credit / Debit Card</span>
                       </div>
                       <div className="flex gap-2 text-xl text-gray-400">
-                         <i className="fa-brands fa-cc-visa"></i>
-                         <i className="fa-brands fa-cc-mastercard"></i>
-                         <i className="fa-brands fa-cc-amex"></i>
+                         <FaCcVisa />
+                         <FaCcMastercard />
+                         <FaCcAmex />
                       </div>
                     </div>
                   </label>
@@ -288,18 +290,18 @@ export default function Checkout() {
               <h3 className="text-xl font-bold text-teal-900 mb-6">Order Summary</h3>
               
               <ul className="space-y-4 mb-6 max-h-64 overflow-y-auto pr-2">
-                {cartItems.map((item) => (
-                  <li key={item.id} className="flex gap-4">
+                {cartItems?.map((item) => (
+                  <li key={item?.id} className="flex gap-4">
                     <img 
-                      src={item.image} 
-                      alt={item.name} 
+                      src={item?.image} 
+                      alt={item?.name} 
                       className="w-16 h-16 rounded-lg object-cover border border-gray-100"
                     />
                     <div className="flex-1">
-                      <h4 className="text-sm font-semibold text-teal-900 line-clamp-1">{item.name}</h4>
-                      <p className="text-xs text-gray-500 mt-1">Qty: {item.quantity}</p>
+                      <h4 className="text-sm font-semibold text-teal-900 line-clamp-1">{item?.name}</h4>
+                      <p className="text-xs text-gray-500 mt-1">Qty: {item?.quantity}</p>
                       <p className="text-sm font-bold text-teal-900 mt-1">
-                        PKR {Math.floor(item.price * item.quantity).toLocaleString()}
+                        PKR {Math.floor((item?.price || 0) * (item?.quantity || 0)).toLocaleString()}
                       </p>
                     </div>
                   </li>

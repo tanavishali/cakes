@@ -9,7 +9,7 @@ import { useCart } from '../contexts/CartContext';
 const slugToCategoryMap = {
   'cookies': 'Cookies',
   'cakes': 'Cakes',
-  'breads': 'Breads',
+  'bento-cakes': 'Bento Cakes',
   'pastry': 'Pastry',
   'desserts': 'Desserts',
   'cup-cakes': 'Cup Cakes',
@@ -19,42 +19,62 @@ const slugToCategoryMap = {
   'boys-cakes': 'Boys Cakes',
   'deals': 'Deals',
   'nikka-cakes': 'Nikka Cakes',
+  'pound-cakes': 'Pound Cakes',
 };
 
+import { CardSkeleton } from '../components/storefront/Skeleton';
+
+// ... (slugToCategoryMap is same)
+
 export default function CategoryPage() {
-  const { categoryId } = useParams();
+  const { categoryId, weight } = useParams();
   const { addToCart } = useCart();
   const [sortedProducts, setSortedProducts] = useState([]);
   const [sortBy, setSortBy] = useState('Default sorting');
+  const [isLoading, setIsLoading] = useState(true);
   
   // Use the slug map to get the display name, fallback to formatted param
-  const categoryName = slugToCategoryMap[categoryId] || (categoryId.charAt(0).toUpperCase() + categoryId.slice(1));
+  const baseCategoryName = slugToCategoryMap[categoryId] || (categoryId?.charAt(0).toUpperCase() + categoryId?.slice(1)) || 'Category';
+  const categoryName = weight ? `${weight}lb ${baseCategoryName}` : baseCategoryName;
   
   // Find the category data for the icon
-  const categoryData = categories.find(
-    (cat) => cat.slug === categoryId || cat.name.toLowerCase() === categoryId.toLowerCase()
+  const categoryData = categories?.find(
+    (cat) => cat.slug === categoryId || cat.name?.toLowerCase() === categoryId?.toLowerCase()
   );
   
-  // Filter products by category name
-  const categoryProducts = products.filter(
-    (product) => product.category.toLowerCase() === categoryName.toLowerCase()
-  );
+  // Filter products by category name and optionally weight
+  const categoryProducts = products?.filter((product) => {
+    const categoryMatch = product?.category?.toLowerCase() === baseCategoryName?.toLowerCase();
+    if (!categoryMatch) return false;
+    
+    if (weight) {
+      return product.weight === parseInt(weight);
+    }
+    return true;
+  }) || [];
 
   useEffect(() => {
-    let result = [...categoryProducts];
-    
-    if (sortBy === 'Sort by price: low to high') {
-      result.sort((a, b) => a.price - b.price);
-    } else if (sortBy === 'Sort by price: high to low') {
-      result.sort((a, b) => b.price - a.price);
-    } else if (sortBy === 'Sort by popularity') {
-      result.sort((a, b) => b.reviews - a.reviews);
-    } else if (sortBy === 'Sort by newness') {
-      result.sort((a, b) => (a.badge === 'New' ? -1 : 1));
-    }
-    
-    setSortedProducts(result);
-  }, [categoryId, sortBy]);
+    setIsLoading(true);
+    // Simulate loading for smoother UX
+    const timer = setTimeout(() => {
+      let result = [...categoryProducts];
+      
+      if (sortBy === 'Sort by price: low to high') {
+        result.sort((a, b) => (a.price || 0) - (b.price || 0));
+      } else if (sortBy === 'Sort by price: high to low') {
+        result.sort((a, b) => (b.price || 0) - (a.price || 0));
+      } else if (sortBy === 'Sort by popularity') {
+        result.sort((a, b) => (b.reviews || 0) - (a.reviews || 0));
+      } else if (sortBy === 'Sort by newness') {
+        result.sort((a, b) => (a.badge === 'New' ? -1 : 1));
+      }
+      
+      setSortedProducts(result);
+      setIsLoading(false);
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, [categoryId, sortBy, weight]);
 
   return (
     <div className="bg-warm-gray-50 min-h-screen pb-20">
@@ -98,7 +118,11 @@ export default function CategoryPage() {
         </div>
 
         {/* Product Grid */}
-        {sortedProducts.length > 0 ? (
+        {isLoading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[...Array(8)].map((_, i) => <CardSkeleton key={i} />)}
+          </div>
+        ) : sortedProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {sortedProducts.map((product) => (
               <div key={product.id} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow group">
@@ -118,7 +142,7 @@ export default function CategoryPage() {
                     <button 
                       onClick={(e) => {
                         e.preventDefault();
-                        addToCart(product);
+                        product && addToCart(product);
                       }}
                       className="w-full py-2.5 bg-white text-teal-900 font-semibold rounded-lg shadow-lg flex items-center justify-center gap-2 hover:bg-teal-50 transition-colors"
                     >
@@ -131,7 +155,7 @@ export default function CategoryPage() {
                 </div>
                 <h3 className="font-bold text-teal-900 text-lg mb-2 line-clamp-1">{product.name}</h3>
                 <div className="flex flex-col">
-                  <span className="font-bold text-teal-900 text-lg">PKR {Math.floor(product.price).toLocaleString()} <span className="text-xs font-normal text-gray-400 lowercase italic">per pound</span></span>
+                  <span className="font-bold text-teal-900 text-lg">PKR {Math.floor(product.price || 0).toLocaleString()} <span className="text-xs font-normal text-gray-400 lowercase italic">per pound</span></span>
                   {product.originalPrice && (
                     <span className="text-sm text-gray-400 line-through">
                       PKR {Math.floor(product.originalPrice).toLocaleString()}

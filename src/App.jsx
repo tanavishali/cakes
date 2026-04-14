@@ -40,11 +40,7 @@ function AppRoutes() {
       {/* Storefront (user) */}
       <Route
         path="/"
-        element={
-          <ProtectedRoute requiredRole="user">
-            <StorefrontLayout />
-          </ProtectedRoute>
-        }
+        element={<StorefrontLayout />}
       >
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
@@ -53,7 +49,7 @@ function AppRoutes() {
         <Route path="payment" element={<SecurePayment />} />
         <Route path="contact" element={<Contact />} />
         <Route path="checkout" element={<Checkout />} />
-        <Route path="category/:categoryId" element={<CategoryPage />} />
+        <Route path="category/:categoryId/:weight?" element={<CategoryPage />} />
       </Route>
 
       {/* Admin dashboard */}

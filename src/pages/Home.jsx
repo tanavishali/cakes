@@ -1,8 +1,11 @@
+import { useState, useEffect } from 'react';
 import HeroBanner from '../components/storefront/HeroBanner';
 import CategoryCircles from '../components/storefront/CategoryCircles';
 import ProductGrid from '../components/storefront/ProductGrid';
 import { products } from '../data/products';
-import { FaTruck, FaShieldAlt, FaHeadset, FaUndo } from 'react-icons/fa';
+import { FaTruck, FaShieldAlt, FaHeadset, FaUndo, FaStar } from 'react-icons/fa';
+import { FiArrowRight } from 'react-icons/fi';
+import { GiCakeSlice } from 'react-icons/gi';
 
 const features = [
   { icon: FaTruck, title: 'Free Delivery', desc: 'On orders over PKR 5,000' },
@@ -33,8 +36,14 @@ const testimonials = [
 ];
 
 export default function Home() {
-  const newProducts = products.filter((p) => p.badge === 'New' || p.badge === 'Bestseller').slice(0, 8);
-  const featured = products.slice(0, 8);
+  const [isLoading, setIsLoading] = useState(true);
+  const newProducts = products?.filter((p) => p?.badge === 'New' || p?.badge === 'Bestseller').slice(0, 8) || [];
+  const featured = products?.slice(0, 8) || [];
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -44,23 +53,29 @@ export default function Home() {
       {/* Features bar */}
       <section className="bg-white border-y border-warm-gray-100">
         <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {features.map((f) => (
-            <div key={f.title} className="flex items-center gap-3 group">
+          {features?.map((f) => (
+            <div key={f?.title} className="flex items-center gap-3 group">
               <div className="w-12 h-12 rounded-full bg-cream-100 text-teal-700 flex items-center justify-center group-hover:bg-teal-800 group-hover:text-white transition-all duration-300">
-                <f.icon size={20} />
+                {f?.icon && <f.icon size={20} />}
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-800">{f.title}</p>
-                <p className="text-xs text-warm-gray-300">{f.desc}</p>
+                <p className="text-sm font-semibold text-gray-800">{f?.title}</p>
+                <p className="text-xs text-warm-gray-300">{f?.desc}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <ProductGrid title="New Products" subtitle="Fresh From Our Oven" products={newProducts} />
+      <ProductGrid 
+        title="New Products" 
+        subtitle="Fresh From Our Oven" 
+        products={newProducts} 
+        isLoading={isLoading} 
+      />
 
       {/* Promo Banner */}
+
       <section className="py-16 bg-teal-800 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-terracotta-500 -translate-y-1/2 translate-x-1/3" />
@@ -77,18 +92,23 @@ export default function Home() {
             </p>
             <a
               href="#"
-              className="inline-flex items-center px-8 py-3.5 bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold rounded-full shadow-lg transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center px-8 py-3.5 bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold rounded-full shadow-lg transition-all duration-300 hover:scale-105 gap-2"
             >
-              Order Now →
+              Order Now <FiArrowRight />
             </a>
           </div>
-          <div className="w-72 h-72 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-8xl">
-            🎂
+          <div className="w-72 h-72 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-7xl text-white">
+            <GiCakeSlice />
           </div>
         </div>
       </section>
 
-      <ProductGrid title="Featured Products" subtitle="Bestsellers" products={featured} />
+      <ProductGrid 
+        title="Featured Products" 
+        subtitle="Bestsellers" 
+        products={featured} 
+        isLoading={isLoading} 
+      />
 
       {/* Testimonials */}
       <section className="py-16 bg-white">
@@ -104,7 +124,10 @@ export default function Home() {
               <div key={t.name} className="bg-cream-50 rounded-xl p-6 border border-warm-gray-100 hover:shadow-lg transition-shadow duration-300">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <span key={i} className={`text-sm ${i < t.rating ? 'text-amber-400' : 'text-warm-gray-200'}`}>★</span>
+                    <FaStar 
+                      key={i} 
+                      className={`text-sm ${i < t.rating ? 'text-amber-400' : 'text-warm-gray-200'}`} 
+                    />
                   ))}
                 </div>
                 <p className="text-sm text-gray-600 leading-relaxed mb-4 italic">"{t.text}"</p>

@@ -1,6 +1,7 @@
 import ProductCard from './ProductCard';
+import { CardSkeleton } from './Skeleton';
 
-export default function ProductGrid({ title, subtitle, products }) {
+export default function ProductGrid({ title, subtitle, products, isLoading }) {
   return (
     <section id="products" className="py-16 bg-cream-50">
       <div className="max-w-7xl mx-auto px-4">
@@ -13,9 +14,12 @@ export default function ProductGrid({ title, subtitle, products }) {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+          {isLoading 
+            ? [...Array(4)].map((_, i) => <CardSkeleton key={i} />)
+            : products?.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))
+          }
         </div>
       </div>
     </section>

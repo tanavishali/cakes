@@ -77,10 +77,10 @@ export function CartProvider({ children }) {
   };
 
   // Calculate totals
-  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
-  const subtotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
-  const shipping = subtotal > 5000 ? 0 : 500; // Free shipping over PKR 5,000
-  const total = subtotal + (subtotal > 0 ? shipping : 0);
+  const totalItems = cartItems?.reduce((total, item) => total + (item?.quantity || 0), 0) || 0;
+  const subtotal = cartItems?.reduce((total, item) => total + ((item?.price || 0) * (item?.quantity || 0)), 0) || 0;
+  const shipping = subtotal > 5000 ? 0 : (subtotal > 0 ? 500 : 0); // Free shipping over PKR 5,000
+  const total = subtotal + shipping;
 
   const value = {
     cartItems,

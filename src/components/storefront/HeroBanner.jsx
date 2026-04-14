@@ -1,3 +1,5 @@
+import { FiArrowRight } from 'react-icons/fi';
+
 const heroImages = [
   "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&h=800&fit=crop", // Chocolate cake
   "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&h=800&fit=crop", // Strawberry cake
@@ -34,9 +36,9 @@ export default function HeroBanner() {
           <div className="flex flex-wrap gap-4">
             <a
               href="#products"
-              className="inline-flex items-center px-8 py-4 bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold rounded-full shadow-lg shadow-terracotta-500/30 transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center px-8 py-4 bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold rounded-full shadow-lg shadow-terracotta-500/30 transition-all duration-300 hover:scale-105 gap-2"
             >
-              Shop Now →
+              Shop Now <FiArrowRight />
             </a>
             <a
               href="#categories"

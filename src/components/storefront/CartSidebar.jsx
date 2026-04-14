@@ -1,4 +1,4 @@
-import { FiX, FiMinus, FiPlus, FiTrash2, FiShoppingBag } from 'react-icons/fi';
+import { FiX, FiMinus, FiPlus, FiTrash2, FiShoppingBag, FiLock } from 'react-icons/fi';
 import { useCart } from '../../contexts/CartContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -151,7 +151,7 @@ export default function CartSidebar() {
               Secure Checkout
             </button>
             <p className="text-xs text-center text-gray-400 mt-4 flex items-center justify-center gap-1">
-              <span>🔒</span> Secured via highly encrypted payments
+              <FiLock /> Secured via highly encrypted payments
             </p>
           </div>
         )}
