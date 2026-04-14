@@ -21,7 +21,6 @@ const navLinks = [
   { label: 'Cakes', to: '/category/cakes' },
   { label: 'Bento Cakes', to: '/category/bento-cakes' },
   { label: 'Pastry', to: '/category/pastry' },
-  { label: 'Desserts', to: '/category/desserts' },
   { label: 'Baby Cakes', to: '/category/baby-cakes' },
   { label: 'Boys Cakes', to: '/category/boys-cakes' },
   { label: 'Deals', to: '/category/deals' },
@@ -40,7 +39,7 @@ export default function Header() {
       {/* Top Info Bar */}
       <div className="bg-teal-900 text-cream-100/80 text-xs py-2">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-          <span>📞 (+001) 0123-456-789 &nbsp;|&nbsp; 📧 info@blushercakes.com</span>
+          <span>📞 +92308-0523864   📧 info@blushercakes.com</span>
           <div className="hidden md:flex items-center gap-4">
             <span>Free delivery on orders over PKR 5,000!</span>
           </div>

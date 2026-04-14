@@ -7,7 +7,6 @@ export const categories = [
     { id: 2, name: 'Cakes', slug: 'cakes', icon: GiCakeSlice, image: '/categories/cakes.jpg' },
     { id: 3, name: 'Bento Cakes', slug: 'bento-cakes', icon: GiCakeSlice, image: '/bento-cake/bento-cake-3.jpeg' },
     { id: 4, name: 'Pastry', slug: 'pastry', icon: LuCroissant, image: '/categories/pastry.jpg' },
-    { id: 5, name: 'Desserts', slug: 'desserts', icon: LuDessert, image: '/categories/desserts.jpg' },
     { id: 6, name: 'Cup Cakes', slug: 'cup-cakes', icon: GiCupcake, image: '/categories/cupcakes.jpg' },
     { id: 7, name: 'Donuts', slug: 'donuts', icon: GiDonut, image: '/categories/donuts.jpg' },
     { id: 8, name: 'Party Items', slug: 'party-items', icon: GiBalloons, image: '/categories/party.jpg' },

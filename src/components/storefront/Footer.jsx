@@ -42,7 +42,7 @@ export default function Footer() {
               {[
                 { Icon: FaFacebookF, href: '#' },
                 { Icon: FaTwitter, href: '#' },
-                { Icon: FaInstagram, href: 'https://www.instagram.com/blushercakes/' },
+                { Icon: FaInstagram, href: 'https://www.instagram.com/blushercakes/reels/' },
                 { Icon: FaYoutube, href: '#' }
               ].map(({ Icon, href }, i) => (
                 <a
@@ -94,11 +94,11 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
                 <FiMapPin className="text-terracotta-400 mt-0.5 flex-shrink-0" />
-                <span>1801 Baker Street, Suite 200, New York, 10001</span>
+                <span>Judicial Colony Phase 2 D Block, Lahore, Pakistan</span>
               </li>
               <li className="flex items-center gap-3">
                 <FiPhone className="text-terracotta-400 flex-shrink-0" />
-                <span>(+001) 0123-456-789</span>
+                <span>0308-0523864</span>
               </li>
               <li className="flex items-center gap-3">
                 <FiMail className="text-terracotta-400 flex-shrink-0" />

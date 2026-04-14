@@ -206,7 +206,7 @@ export const products = [
     {
         id: 7,
         name: 'Tiramisu',
-        category: 'Desserts',
+        category: 'Pastry',
         price: 1500,
         originalPrice: null,
         rating: 4.9,
@@ -242,7 +242,7 @@ export const products = [
     {
         id: 11,
         name: 'Macarons Assorted',
-        category: 'Desserts',
+        category: 'Pastry',
         price: 1600,
         originalPrice: null,
         rating: 4.7,

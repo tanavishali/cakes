@@ -11,7 +11,6 @@ const slugToCategoryMap = {
   'cakes': 'Cakes',
   'bento-cakes': 'Bento Cakes',
   'pastry': 'Pastry',
-  'desserts': 'Desserts',
   'cup-cakes': 'Cup Cakes',
   'donuts': 'Donuts',
   'party-items': 'Party Items',

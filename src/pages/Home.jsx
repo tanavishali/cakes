@@ -16,22 +16,40 @@ const features = [
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
+    name: 'Sania Khan',
     avatar: 'S',
     rating: 5,
     text: 'The chocolate truffle cake was absolutely divine! Best bakery I have ever ordered from. The delivery was prompt and the packaging was perfect.',
   },
   {
-    name: 'Mike Chen',
+    name: 'Muhammad Ali',
     avatar: 'M',
     rating: 5,
     text: 'Their sourdough bread is the real deal. Crispy crust, soft interior — just perfect. I order weekly now!',
   },
   {
-    name: 'Emily Brown',
-    avatar: 'E',
+    name: 'Faiza Ahmed',
+    avatar: 'F',
     rating: 4,
     text: 'Ordered cupcakes for my daughter\'s birthday party. Everyone loved them! Beautiful decoration and amazing taste.',
+  },
+  {
+    name: 'Zainab Malik',
+    avatar: 'Z',
+    rating: 5,
+    text: 'The bento cakes are so cute and perfect for small celebrations. My friends loved the Snoopy design!',
+  },
+  {
+    name: 'Hassan Raza',
+    avatar: 'H',
+    rating: 5,
+    text: 'Best cookies in Lahore, hands down. The chocolate chip ones are always fresh and chewy.',
+  },
+  {
+    name: 'Ayesha Siddiqui',
+    avatar: 'A',
+    rating: 5,
+    text: 'Their customer service is excellent. I had a custom request for a Nikkah cake and they delivered exactly what I imagined.',
   },
 ];
 

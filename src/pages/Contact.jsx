@@ -25,7 +25,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-teal-900 text-lg">Visit Us</h4>
-                    <p className="text-gray-600">1801 Baker Street, Suite 200<br />New York, NY 10001</p>
+                    <p className="text-gray-600">Judicial Colony Phase 2<br />D Block, Lahore, Pakistan</p>
                   </div>
                 </li>
                 <li className="flex gap-4">
@@ -34,8 +34,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-teal-900 text-lg">Call Us</h4>
-                    <p className="text-gray-600">(+001) 0123-456-789</p>
-                    <p className="text-xs text-gray-400 mt-1">Available Mon-Sat, 9am - 6pm</p>
+                    <p className="text-gray-600">0308-0523864</p>
+                    <p className="text-xs text-gray-400 mt-1">Available Mon-Sat, 9am - 8pm</p>
                   </div>
                 </li>
                 <li className="flex gap-4">
