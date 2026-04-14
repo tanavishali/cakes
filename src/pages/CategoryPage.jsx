@@ -16,6 +16,7 @@ const slugToCategoryMap = {
   'party-items': 'Party Items',
   'baby-cakes': 'Baby Cakes',
   'boys-cakes': 'Boys Cakes',
+  'mens-cakes': "Men's Cakes",
   'deals': 'Deals',
   'nikka-cakes': 'Nikka Cakes',
   'pound-cakes': 'Pound Cakes',

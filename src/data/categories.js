@@ -15,4 +15,5 @@ export const categories = [
     { id: 11, name: 'Deals', slug: 'deals', icon: FaTags, image: '/deals-2200/deals-2200-1.jpeg' },
     { id: 12, name: 'Nikka Cakes', slug: 'nikka-cakes', icon: FaHeart, image: '/nikka-cake/nikha-cake-1.jpeg' },
     { id: 13, name: 'Pound Cakes', slug: 'pound-cakes', icon: GiCakeSlice, image: 'https://images.unsplash.com/photo-1582760933250-818ce35ea6aa?w=400&h=400&fit=crop' },
+    { id: 14, name: "Men's Cakes", slug: 'mens-cakes', icon: GiCakeSlice, image: '/Mens Cakes/WhatsApp Image 2026-04-14 at 10.08.48 PM.jpeg' },
 ];

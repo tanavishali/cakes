@@ -23,6 +23,7 @@ const navLinks = [
   { label: 'Pastry', to: '/category/pastry' },
   { label: 'Baby Cakes', to: '/category/baby-cakes' },
   { label: 'Boys Cakes', to: '/category/boys-cakes' },
+  { label: "Men's Cakes", to: '/category/mens-cakes' },
   { label: 'Deals', to: '/category/deals' },
   { label: 'Nikka Cakes', to: '/category/nikka-cakes' },
 ];
