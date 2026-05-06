@@ -23,7 +23,7 @@ export default function SecurePayment() {
               100% Secure Checkout
             </h2>
             <p className="text-gray-600 mb-8 leading-relaxed">
-              At Blusher Cakes, all transactions are encrypted and processed through secure, trusted industry-leading payment gateways. We adhere strictly to PCI-DSS compliance standards.
+              At Pearl Reef Cakes, all transactions are encrypted and processed through secure, trusted industry-leading payment gateways. We adhere strictly to PCI-DSS compliance standards.
             </p>
             <ul className="space-y-4">
               {[

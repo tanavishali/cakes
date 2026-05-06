@@ -29,13 +29,13 @@ export default function About() {
             <h2 className="text-3xl font-display font-bold text-teal-900 mb-6">A Passion for Baking</h2>
             <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
               <p>
-                Welcome to Blusher Cakes! We are passionate about creating the most delightful and visually stunning cakes for all your special moments. Founded with a love for baking and a commitment to quality, we use only the finest ingredients to craft cakes, breads, and pastries that taste as good as they look.
+                Welcome to Pearl Reef Cakes! We are passionate about creating the most delightful and visually stunning cakes for all your special moments. Founded with a love for baking and a commitment to quality, we use only the finest ingredients to craft cakes, breads, and pastries that taste as good as they look.
               </p>
               <p>
                 Every single day, our team of dedicated pastry chefs arrives before the break of dawn, ensuring that when you walk through our doors, you are greeted with the irresistible aroma of freshly baked goods.
               </p>
               <p>
-                Whether you are celebrating a birthday, wedding, or just craving a sweet treat, Blusher Cakes is here to bring joy to your table.
+                Whether you are celebrating a birthday, wedding, or just craving a sweet treat, Pearl Reef Cakes is here to bring joy to your table.
               </p>
             </div>
           </div>
@@ -51,7 +51,7 @@ export default function About() {
         {/* Values */}
         <div className="text-center mb-16">
           <h2 className="text-3xl font-display font-bold text-teal-900 mb-4">Our Core Values</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">What makes Blusher Cakes special is our unwavering adherence to these three principles.</p>
+          <p className="text-gray-600 max-w-2xl mx-auto">What makes Pearl Reef Cakes special is our unwavering adherence to these three principles.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">

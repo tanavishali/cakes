@@ -48,8 +48,8 @@ export default function ProductCard({ product }) {
           </span>
         )}
 
-        {/* Hover actions */}
-        <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+        {/* Hover actions - always visible on mobile, hover on desktop */}
+        <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-100 md:opacity-0 md:translate-x-4 md:group-hover:opacity-100 md:group-hover:translate-x-0 transition-all duration-300">
           <button 
             onClick={() => product && toggleWishlist(product)}
             className={`w-9 h-9 rounded-full shadow-md flex items-center justify-center transition-all ${
@@ -68,8 +68,8 @@ export default function ProductCard({ product }) {
           </button>
         </div>
 
-        {/* Quick add to cart */}
-        <div className="absolute bottom-0 left-0 right-0 opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+        {/* Quick add to cart - always visible on mobile, hover on desktop */}
+        <div className="absolute bottom-0 left-0 right-0 opacity-100 md:opacity-0 md:translate-y-full md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300">
           <button 
             onClick={(e) => {
               e.preventDefault();

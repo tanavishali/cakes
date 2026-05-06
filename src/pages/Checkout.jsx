@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../contexts/CartContext';
-import { FiLock, FiCheckCircle, FiChevronLeft, FiTruck } from 'react-icons/fi';
+import { FiLock, FiCheckCircle, FiChevronLeft, FiTruck, FiShoppingCart, FiArrowRight } from 'react-icons/fi';
 import toast from 'react-hot-toast';
+import Skeleton from '../components/storefront/Skeleton';
 
 import { FaCcVisa, FaCcMastercard, FaCcAmex } from 'react-icons/fa';
 
@@ -143,12 +144,108 @@ export default function Checkout() {
         </div>
         
         {/* Step Content */}
-        <div className={`transition-all duration-500 ${isStepLoading ? 'opacity-30 scale-[0.98]' : 'opacity-100 scale-100'}`}>
-          {isStepLoading && (
-            <div className="absolute inset-0 z-50 flex items-center justify-center">
-              <div className="w-12 h-12 border-4 border-teal-200 border-t-teal-600 rounded-full animate-spin"></div>
+        <div className="transition-all duration-500">
+          {isStepLoading ? (
+            <div className="space-y-6">
+              {currentStep === 1 && (
+                <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 space-y-6 animate-pulse">
+                  <Skeleton className="h-8 w-48 rounded-lg" />
+                  <div className="space-y-4">
+                    {[1, 2].map((i) => (
+                      <div key={i} className="flex items-center gap-4 py-4 border-b border-gray-100 last:border-0">
+                        <Skeleton className="w-20 h-20 rounded-2xl" />
+                        <div className="flex-1 space-y-2">
+                          <Skeleton className="h-5 w-1/2 rounded-lg" />
+                          <Skeleton className="h-4 w-1/4 rounded-lg" />
+                          <Skeleton className="h-5 w-1/3 rounded-lg" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="bg-warm-gray-50 p-6 rounded-2xl space-y-3">
+                    <div className="flex justify-between">
+                      <Skeleton className="h-4 w-16 rounded-md" />
+                      <Skeleton className="h-4 w-24 rounded-md" />
+                    </div>
+                    <div className="flex justify-between">
+                      <Skeleton className="h-4 w-16 rounded-md" />
+                      <Skeleton className="h-4 w-12 rounded-md" />
+                    </div>
+                    <div className="pt-3 border-t border-gray-200 flex justify-between">
+                      <Skeleton className="h-6 w-24 rounded-md" />
+                      <Skeleton className="h-8 w-32 rounded-md" />
+                    </div>
+                  </div>
+                  <Skeleton className="w-full h-14 mt-8 rounded-2xl" />
+                </div>
+              )}
+
+              {currentStep === 2 && (
+                <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 space-y-6 animate-pulse">
+                  <Skeleton className="h-8 w-64 rounded-lg" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <Skeleton className="h-4 w-20 mb-2 rounded-md" />
+                      <Skeleton className="h-12 w-full rounded-xl" />
+                    </div>
+                    <div>
+                      <Skeleton className="h-4 w-20 mb-2 rounded-md" />
+                      <Skeleton className="h-12 w-full rounded-xl" />
+                    </div>
+                    <div className="md:col-span-2">
+                      <Skeleton className="h-4 w-32 mb-2 rounded-md" />
+                      <Skeleton className="h-12 w-full rounded-xl" />
+                    </div>
+                    <div>
+                      <Skeleton className="h-4 w-12 mb-2 rounded-md" />
+                      <Skeleton className="h-12 w-full rounded-xl" />
+                    </div>
+                    <div>
+                      <Skeleton className="h-4 w-36 mb-2 rounded-md" />
+                      <Skeleton className="h-12 w-full rounded-xl" />
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <Skeleton className="flex-1 h-14 rounded-2xl" />
+                    <Skeleton className="flex-[2] h-14 rounded-2xl" />
+                  </div>
+                </div>
+              )}
+
+              {currentStep === 3 && (
+                <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 space-y-6 animate-pulse">
+                  <Skeleton className="h-8 w-48 rounded-lg" />
+                  <div className="space-y-4">
+                    <div className="p-5 border border-gray-100 rounded-2xl">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-3">
+                          <Skeleton className="w-5 h-5 rounded-full" />
+                          <Skeleton className="h-5 w-36 rounded-md" />
+                        </div>
+                        <Skeleton className="h-6 w-16 rounded-md" />
+                      </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        <Skeleton className="col-span-2 h-10 rounded-xl" />
+                        <Skeleton className="h-10 rounded-xl" />
+                        <Skeleton className="h-10 rounded-xl" />
+                      </div>
+                    </div>
+                    <div className="p-5 border border-gray-100 rounded-2xl">
+                      <div className="flex items-center gap-3">
+                        <Skeleton className="w-5 h-5 rounded-full" />
+                        <Skeleton className="h-5 w-32 rounded-md" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <Skeleton className="flex-1 h-14 rounded-2xl" />
+                    <Skeleton className="flex-[2] h-14 rounded-2xl" />
+                  </div>
+                </div>
+              )}
             </div>
-          )}
+          ) : (
+            <>
 
           {currentStep === 1 && (
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 animate-fadeInUp">
@@ -286,7 +383,7 @@ export default function Checkout() {
               </div>
               <h2 className="text-3xl font-display font-bold text-teal-900 mb-4">Your cake is on the way!</h2>
               <p className="text-gray-500 mb-8 max-w-sm mx-auto leading-relaxed">
-                Thank you for choosing Blusher Cakes. We've received your order and our bakers are already at work!
+                Thank you for choosing Pearl Reef Cakes. We've received your order and our bakers are already at work!
               </p>
               <Link 
                 to="/" 
@@ -295,6 +392,8 @@ export default function Checkout() {
                 Back to Shopping <FiArrowRight />
               </Link>
             </div>
+          )}
+          </>
           )}
         </div>
       </div>

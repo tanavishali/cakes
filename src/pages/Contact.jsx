@@ -34,7 +34,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-teal-900 text-lg">Call Us</h4>
-                    <p className="text-gray-600">0308-0523864</p>
+                    <p className="text-gray-600">0315-4763116</p>
                     <p className="text-xs text-gray-400 mt-1">Available Mon-Sat, 9am - 8pm</p>
                   </div>
                 </li>
@@ -44,7 +44,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-teal-900 text-lg">Email Us</h4>
-                    <a href="mailto:info@blushercakes.com" className="text-teal-600 hover:text-terracotta-500 transition-colors">info@blushercakes.com</a>
+                    <a href="mailto:info@pearlreefcakes.com" className="text-teal-600 hover:text-terracotta-500 transition-colors">info@pearlreefcakes.com</a>
                   </div>
                 </li>
                 <li className="flex gap-4">

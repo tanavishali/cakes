@@ -23,7 +23,7 @@ export default function HeroBanner() {
         {/* Left Side Content */}
         <div className="max-w-xl py-12">
           <span className="inline-block px-4 py-2 rounded-full bg-teal-800/50 border border-teal-700/50 text-terracotta-400 text-sm font-semibold tracking-widest uppercase mb-6 animate-pulse">
-            ✨ Welcome to Blusher Cakes
+            ✨ Welcome to Pearl Reef Cakes
           </span>
           <h2 className="text-5xl md:text-7xl font-display font-bold text-white leading-tight mb-6">
             The <span className="text-terracotta-400">Bakery</span>

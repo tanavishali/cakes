@@ -4,7 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useCart } from '../../contexts/CartContext';
 import { useWishlist } from '../../contexts/WishlistContext';
 import { FiSearch, FiUser, FiHeart, FiShoppingCart, FiMenu, FiX, FiLogOut, FiChevronDown } from 'react-icons/fi';
-import { GiCakeSlice } from 'react-icons/gi';
+import pearlReefLogo from '../../assets/pearl-reef-logo.png';
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -40,7 +40,7 @@ export default function Header() {
       {/* Top Info Bar */}
       <div className="bg-teal-900 text-cream-100/80 text-xs py-2">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-          <span>📞 +92308-0523864   📧 info@blushercakes.com</span>
+          <span>📞 +92 315 4763116   📧 info@pearlreefcakes.com</span>
           <div className="hidden md:flex items-center gap-4">
             <span>Free delivery on orders over PKR 5,000!</span>
           </div>
@@ -59,12 +59,12 @@ export default function Header() {
           </button>
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <GiCakeSlice className="text-3xl text-terracotta-500 group-hover:rotate-12 transition-transform duration-300" />
-            <div>
-              <h1 className="text-xl font-display font-bold text-teal-900 tracking-wider leading-tight">BLUSHER CAKES</h1>
-              <p className="text-[10px] text-warm-gray-300 tracking-[0.2em] uppercase">Bakery & Confections</p>
-            </div>
+          <Link to="/" className="flex items-center gap-1 group">
+            <img
+              src={pearlReefLogo}
+              alt="Pearl Reef Cakes"
+              className="h-14 w-14 object-cover rounded-full ring-2 ring-teal-100 group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
+            />
           </Link>
 
           {/* Search bar - desktop */}

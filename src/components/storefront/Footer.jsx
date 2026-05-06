@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FiMapPin, FiPhone, FiMail, FiSend } from 'react-icons/fi';
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
-import { GiCakeSlice } from 'react-icons/gi';
+import pearlReefLogo from '../../assets/pearl-reef-logo.png';
 
 export default function Footer() {
   return (
@@ -32,8 +32,7 @@ export default function Footer() {
           {/* About */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <GiCakeSlice className="text-2xl text-terracotta-400" />
-              <span className="text-lg font-display font-bold text-white tracking-wider">BLUSHER CAKES</span>
+              <img src={pearlReefLogo} alt="Pearl Reef Cakes" className="h-14 w-14 object-cover rounded-full ring-2 ring-white/20" />
             </Link>
             <p className="text-sm leading-relaxed mb-4">
               We craft the finest cakes, breads, and pastries using premium ingredients and traditional recipes passed down through generations.
@@ -42,7 +41,7 @@ export default function Footer() {
               {[
                 { Icon: FaFacebookF, href: '#' },
                 { Icon: FaTwitter, href: '#' },
-                { Icon: FaInstagram, href: 'https://www.instagram.com/blushercakes/reels/' },
+                { Icon: FaInstagram, href: 'https://www.instagram.com/pearl_reefcakes/' },
                 { Icon: FaYoutube, href: '#' }
               ].map(({ Icon, href }, i) => (
                 <a
@@ -98,11 +97,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <FiPhone className="text-terracotta-400 flex-shrink-0" />
-                <span>0308-0523864</span>
+                <span>0315-4763116</span>
               </li>
               <li className="flex items-center gap-3">
                 <FiMail className="text-terracotta-400 flex-shrink-0" />
-                <span>info@blushercakes.com</span>
+                <span>info@pearlreefcakes.com</span>
               </li>
             </ul>
           </div>
@@ -111,7 +110,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-white/10">
           <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between text-xs text-cream-200/40">
-            <p>&copy; 2026 Blusher Cakes. All Rights Reserved.</p>
+            <p>&copy; 2026 Pearl Reef Cakes. All Rights Reserved.</p>
             <div className="flex gap-4 mt-2 sm:mt-0">
               <a href="#" className="hover:text-cream-200/70 transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-cream-200/70 transition-colors">Terms of Use</a>

@@ -19,6 +19,7 @@ import SecurePayment from './pages/SecurePayment';
 import Contact from './pages/Contact';
 import CategoryPage from './pages/CategoryPage';
 import Checkout from './pages/Checkout';
+import RouteLoader from './components/storefront/RouteLoader';
 
 function AppRoutes() {
   const { isAuthenticated, user } = useAuth();
@@ -93,6 +94,7 @@ export default function App() {
             }} 
           />
           <WishlistProvider>
+            <RouteLoader />
             <AppRoutes />
             
             {/* Floating WhatsApp Button */}

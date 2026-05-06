@@ -18,7 +18,7 @@ export default function Terms() {
       id: "liability",
       title: "Liability Details",
       icon: <FiShield className="text-blue-500" size={24} />,
-      content: "Blusher Cakes is not responsible for any damage to the cake after setup is complete or after the product is picked up by the customer. Care instructions will be provided with every order to ensure your cake maintains its quality."
+      content: "Pearl Reef Cakes is not responsible for any damage to the cake after setup is complete or after the product is picked up by the customer. Care instructions will be provided with every order to ensure your cake maintains its quality."
     },
     {
       id: "refunds",
@@ -34,14 +34,14 @@ export default function Terms() {
         <div className="text-center mb-16">
           <h1 className="text-5xl font-display font-bold text-teal-900 mb-6">Terms & Conditions</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Please read these terms carefully before using our website or placing an order with Blusher Cakes.
+            Please read these terms carefully before using our website or placing an order with Pearl Reef Cakes.
           </p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           <div className="p-8 lg:p-12 space-y-12">
             <p className="text-gray-700 leading-relaxed text-lg border-b border-gray-100 pb-8">
-              By using our website and placing an order with Blusher Cakes, you are agreeing to the following terms and conditions. These policies are in place to ensure the best possible experience and highest quality products for all our customers.
+              By using our website and placing an order with Pearl Reef Cakes, you are agreeing to the following terms and conditions. These policies are in place to ensure the best possible experience and highest quality products for all our customers.
             </p>
 
             <div className="space-y-10">

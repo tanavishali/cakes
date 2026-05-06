@@ -137,8 +137,8 @@ export default function CategoryPage() {
                       {product.badge}
                     </span>
                   )}
-                  {/* Quick Add Overlay */}
-                  <div className="absolute inset-x-0 bottom-0 p-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                  {/* Quick Add Overlay - always visible on mobile, hover on desktop */}
+                  <div className="absolute inset-x-0 bottom-0 p-4 opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300">
                     <button 
                       onClick={(e) => {
                         e.preventDefault();
